@@ -36,9 +36,9 @@ public class ZohoRecruitApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		rolesController.save(new Role(ERole.ROLE_USER));
-		rolesController.save(new Role(ERole.ROLE_ADMIN));
-		rolesController.save(new Role(ERole.ROLE_MODERATOR));
+		rolesController.saveuser(new Role(ERole.ROLE_USER));
+		rolesController.saveadmin(new Role(ERole.ROLE_ADMIN));
+		rolesController.savemod(new Role(ERole.ROLE_MODERATOR));
 		System.out.println("Sending Email...");
 
 

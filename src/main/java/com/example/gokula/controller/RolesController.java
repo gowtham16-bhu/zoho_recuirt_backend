@@ -1,6 +1,7 @@
 package com.example.gokula.controller;
 
 import com.example.gokula.Repo.RoleRepository;
+import com.example.gokula.models.ERole;
 import com.example.gokula.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,22 @@ import java.util.Optional;
 public class RolesController {
     @Autowired
     RoleRepository roleRepository;
-    public Role save(Role role){
-        return roleRepository.save(role);
+    public Role saveuser(Role role){
+        return (roleRepository.findByName(ERole.ROLE_USER)).isPresent()?role:roleRepository.save(role);
+
+
+
+
+    }
+    public Role savemod(Role role){
+        return (roleRepository.findByName(ERole.ROLE_MODERATOR)).isPresent()?role:roleRepository.save(role);
+
+
+
+
+    }
+    public Role saveadmin(Role role){
+        return (roleRepository.findByName(ERole.ROLE_ADMIN)).isPresent()?role:roleRepository.save(role);
 
 
 

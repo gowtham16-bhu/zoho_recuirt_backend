@@ -16,8 +16,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.gokula.Repo.CandidatesRepo;
 import com.example.gokula.models.Candidates;
 import com.example.gokula.models.FileDB;
+import com.example.gokula.models.Jobopenings;
 import com.example.gokula.payload.response.CandiRes;
 import com.example.gokula.payload.response.CandidateResponse;
+import com.example.gokula.payload.response.CandidateResponsea;
+import com.example.gokula.payload.response.ResponseJobsopenings;
 import com.example.gokula.service.CandidatesService;
 import com.example.gokula.service.FileStorageService;
 
@@ -157,15 +160,15 @@ public class candidatesController {
 						.path("/files/")
 						.path(can.getFileDB().getId())
 						.toUriString();
-				res.add(new CandidateResponse(can.getId(), can.getFirstName(), can.getEmail(), can.getPhone(), can.getWebsite(),
-						can.getSecondaryEmail(), can.getLastName(), can.getMobile(), can.getFax(),
-						can.getStreet(), can.getState(), can.getCountry(), can.getCity(),
-						can.getZip(), can.getExpInYrs(), can.getcJobTitle(),
-						can.getExpectedSalary(), can.getSkillSet(), can.getSkypeId(),
-						can.gethQualification(), can.getCurrentEmployer(), can.getCurrentSalary(),
-						can.getAdditionalInfo(), can.getTwitter(), can.getCandidateStatus(), can.getSource()
-						, can.getAssessment().getStatus(), fileDownloadUri,can.getCompanyName()
-				));
+				 new CandiRes( can.getId(),can.getFirstName(),can.getEmail(),can.getPhone(),can.getWebsite(),
+						can.getSecondaryEmail(),can.getLastName(),can.getMobile(),can.getFax(),
+						can.getStreet(),can.getState(),can.getCountry(),can.getCity(),
+						can.getZip(),can.getExpInYrs(),can.getcJobTitle(),
+						can.getExpectedSalary(),can.getSkillSet(),can.getSkypeId(),
+						can.gethQualification(),can.getCurrentEmployer(),can.getCurrentSalary(),
+						can.getAdditionalInfo(),can.getTwitter(),can.getCandidateStatus(),can.getSource()
+						,can.getAssessment().getStatus(),fileDownloadUri,can.getCompanyName()
+				);
 			}
 
 
@@ -176,6 +179,77 @@ public class candidatesController {
 		return res;
 
 	}
+	
+	
+	
+//	findByCompanyName
+	
+	
+	
+	@GetMapping("/api/candidatesbyc/{name}")
+	public List < CandidateResponse >  getCandikkkkdates(@PathVariable("name") String name) {
+		
+//		int id, String firstName, String email, String phone, String website, String secondaryEmail,
+//		String lastName, String mobile, String fax, String street, String state, String country, String city,
+//		String zip, String expInYrs, String cJobTitle, String expectedSalary, String skillSet, String skypeId,
+//		String hQualification, String currentEmployer, String currentSalary, String additionalInfo, String twitter,
+//		String candidateStatus, String source, Assessment assessment
+		 List < Candidates >  candidates=  candidatesRepo.findByCompanyName(name);
+		 List <CandidateResponse> res = new ArrayList<>();
+		 		 
+		 for(Candidates can : candidates) {
+			 String fileDownloadUri = ServletUriComponentsBuilder
+					 .fromCurrentContextPath()
+					 .path("/files/")
+					 .path(can.getFileDB().getId())
+					 .toUriString();
+			 res.add( new CandidateResponse( can.getId(),can.getFirstName(),can.getEmail(),can.getPhone(),can.getWebsite(),
+					 can.getSecondaryEmail(),can.getLastName(),can.getMobile(),can.getFax(),
+					 can.getStreet(),can.getState(),can.getCountry(),can.getCity(),
+					 can.getZip(),can.getExpInYrs(),can.getcJobTitle(),
+					 can.getExpectedSalary(),can.getSkillSet(),can.getSkypeId(),
+					 can.gethQualification(),can.getCurrentEmployer(),can.getCurrentSalary(),
+					 can.getAdditionalInfo(),can.getTwitter(),can.getCandidateStatus(),can.getSource()
+					 ,can.getAssessment().getStatus(),fileDownloadUri,can.getCompanyName()
+					 ) );
+			 
+			 
+			 
+		 }
+	 
+		 return res;
+	 
+		//		return candidatesService.getAllCandidates();
+		
+//		return new()
+	}
+	
+	
+	
+	
+//	@GetMapping("/api/cjobopening/{companyname}")
+//	public List < ResponseJobsopenings>  getSingleJopopenings(@PathVariable("companyname") String companyname){
+//		List<ResponseJobsopenings> end =new ArrayList<>();
+//		
+//		List<Jobopenings> jobs = jobopeningRepo.findByCompanyName(companyname);
+//
+//
+//		for(Jobopenings job:jobs){
+//			
+//			
+//			String fileDownloadUri = ServletUriComponentsBuilder
+//					.fromCurrentContextPath()
+//					.path("/files/")
+//					.path(job.getFileDB().getId())
+//					.toUriString();
+//			
+//			end.add(new ResponseJobsopenings(job.getId(),job.getPostingTitle(),job.getAssignedRecruter(),job.getTargetDate(),job.getAccountManager(),job.getState(),fileDownloadUri,job.getCompanyName()));
+//
+//		}
+//		return end;
+//		
+//	}
+	
 	
 	
 }

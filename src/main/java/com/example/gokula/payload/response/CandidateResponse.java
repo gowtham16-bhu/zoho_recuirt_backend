@@ -17,6 +17,14 @@ public class CandidateResponse {
 	private String city;
 	private String zip;
 	private String expInYrs;
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
 	private String cJobTitle;
 	private String expectedSalary;
 	private String skillSet;
@@ -31,14 +39,6 @@ public class CandidateResponse {
 	private String assessment;
 	private String resumeuri;
 	private String companyName;
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
 
 	public String getResumeuri() {
 		return resumeuri;
@@ -136,11 +136,51 @@ public class CandidateResponse {
 //	public CandidateResponse(int id, String firstName ) {
 //		// TODO Auto-generated constructor stub
 //	}
-//
-//	public CandidateResponse(String name) {
-//		// TODO Auto-generated constructor stub
-//		this.name = name;
-//	}
+
+	
+	public CandidateResponse(int id2, String firstName2, String email2, String phone2, String website2,
+			String secondaryEmail2, String lastName2, String mobile2, String fax2, String street2, String state2,
+			String country2, String city2, String zip2, String expInYrs2, String getcJobTitle, String expectedSalary2,
+			String skillSet2, String skypeId2, String gethQualification, String currentEmployer2, String currentSalary2,
+			String additionalInfo2, String twitter2, String candidateStatus2, String source2, String status,
+			String companyName2) {
+		
+		
+		
+		this.id = id2;
+		this.firstName = firstName2;
+		this.email = email2;
+		this.phone = phone2;
+		this.website = website2;
+		this.secondaryEmail=secondaryEmail2;
+		this.lastName = lastName2;
+		this.mobile = mobile2;
+		this.fax = fax2;
+		this.street = street2;
+		this.state = state2;
+		this.country =country2;
+		this.city = city2;
+		this.zip = zip2;
+		this.expInYrs = expInYrs2;
+		this.cJobTitle = getcJobTitle;
+		this.expectedSalary = expectedSalary2;
+		this.skillSet = skillSet2;
+		this.skypeId = skypeId2;
+		this.hQualification = gethQualification;
+		
+		this.currentEmployer=currentEmployer2;
+		this.currentSalary = currentSalary2;
+		this.additionalInfo =additionalInfo2;
+		this.twitter =twitter2;
+		this.candidateStatus = candidateStatus2;
+		this.source =source2;
+		this.assessment = status;
+		this.companyName =companyName2;
+		
+		
+		
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getId() {
 		return id;
