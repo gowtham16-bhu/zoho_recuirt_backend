@@ -16,8 +16,8 @@
 	<description>learning micro-services using sping boot</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<maven.compiler.source>3.6.2</maven.compiler.source>
-		<maven.compiler.target>3.6.2</maven.compiler.target>
+		<maven.compiler.source>3.8.1</maven.compiler.source>
+		<maven.compiler.target>3.8.1</maven.compiler.target>
 
 	</properties>
 	<dependencies>
