@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="zoho_recuirt_backend" target="9" />
+      <module name="zoho_recuirt_backend" target="3.6.2" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
