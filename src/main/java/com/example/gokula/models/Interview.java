@@ -28,6 +28,16 @@ public class Interview {
     private String assessmentname;
     @Column(name = "istatus")
     private String interviewstatus;
+    @Column(name = "customeremail")
+    private String cmail;
+
+    public String getCmail() {
+        return cmail;
+    }
+
+    public void setCmail(String cmail) {
+        this.cmail = cmail;
+    }
 
     public String getInterviewstatus() {
         return interviewstatus;
@@ -37,7 +47,7 @@ public class Interview {
         this.interviewstatus = interviewstatus;
     }
 
-    public Interview(int id, String interviewname, String postingnitle, String to, String location, String candidatename, String from, String interviewer, String schedulecomments, String assessmentname,String sts) {
+    public Interview(int id, String interviewname, String postingnitle, String to, String location, String candidatename, String from, String interviewer, String schedulecomments, String assessmentname,String sts,String emial) {
         this.id = id;
         this.interviewname = interviewname;
         this.postingnitle = postingnitle;
@@ -49,6 +59,7 @@ public class Interview {
         this.schedulecomments = schedulecomments;
         this.assessmentname = assessmentname;
         this.interviewstatus =sts;
+        this.cmail=emial;
     }
 
     public Interview() {
