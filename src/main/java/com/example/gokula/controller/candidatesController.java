@@ -126,20 +126,92 @@ public class candidatesController {
 	
 	
 	@GetMapping("/api/getcandidatebyfname/{name}")
-	public List<Candidates> getCandidatebyfname(@PathVariable("name") String name){
-		return candidatesRepo.findByFirstName(name);
+	public List<CandidateResponse> getCandidatebyfname(@PathVariable("name") String name){
+		List<Candidates> firstname = candidatesRepo.findByFirstName(name);
+		List <CandidateResponse> res = new ArrayList<>();
+
+		for(Candidates can : firstname) {
+			String fileDownloadUri = ServletUriComponentsBuilder
+					.fromCurrentContextPath()
+					.path("/files/")
+					.path(can.getFileDB().getId())
+					.toUriString();
+			res.add( new CandidateResponse( can.getId(),can.getFirstName(),can.getEmail(),can.getPhone(),can.getWebsite(),
+					can.getSecondaryEmail(),can.getLastName(),can.getMobile(),can.getFax(),
+					can.getStreet(),can.getState(),can.getCountry(),can.getCity(),
+					can.getZip(),can.getExpInYrs(),can.getcJobTitle(),
+					can.getExpectedSalary(),can.getSkillSet(),can.getSkypeId(),
+					can.gethQualification(),can.getCurrentEmployer(),can.getCurrentSalary(),
+					can.getAdditionalInfo(),can.getTwitter(),can.getCandidateStatus(),can.getSource()
+					,can.getAssessment().getStatus(),fileDownloadUri,can.getCompanyName()
+			) );
+
+
+
+		}
+
+		return res;
+
 	}
 	
 	
 	@GetMapping("/api/getcandidatebyemail/{email}")
-	public List<Candidates> getCandidatebyemail(@PathVariable("email") String email){
-		return candidatesRepo.findByEmail(email);
+	public List<CandidateResponse> getCandidatebyemail(@PathVariable("email") String email){
+		List<Candidates> byEmail = candidatesRepo.findByEmail(email);
+		List <CandidateResponse> res = new ArrayList<>();
+
+		for(Candidates can : byEmail) {
+			String fileDownloadUri = ServletUriComponentsBuilder
+					.fromCurrentContextPath()
+					.path("/files/")
+					.path(can.getFileDB().getId())
+					.toUriString();
+			res.add( new CandidateResponse( can.getId(),can.getFirstName(),can.getEmail(),can.getPhone(),can.getWebsite(),
+					can.getSecondaryEmail(),can.getLastName(),can.getMobile(),can.getFax(),
+					can.getStreet(),can.getState(),can.getCountry(),can.getCity(),
+					can.getZip(),can.getExpInYrs(),can.getcJobTitle(),
+					can.getExpectedSalary(),can.getSkillSet(),can.getSkypeId(),
+					can.gethQualification(),can.getCurrentEmployer(),can.getCurrentSalary(),
+					can.getAdditionalInfo(),can.getTwitter(),can.getCandidateStatus(),can.getSource()
+					,can.getAssessment().getStatus(),fileDownloadUri,can.getCompanyName()
+			) );
+
+
+
+		}
+
+		return res;
+
 	}
 	
 	
 	@GetMapping("/api/getcandidatebyphone/{mobile}")
-	public List<Candidates> getCandidatebyphone(@PathVariable("mobile") String mobile){
-		return candidatesRepo.findByMobile(mobile);
+	public List<CandidateResponse> getCandidatebyphone(@PathVariable("mobile") String mobile){
+		List<Candidates> byMobile = candidatesRepo.findByMobile(mobile);
+		List <CandidateResponse> res = new ArrayList<>();
+
+		for(Candidates can : byMobile) {
+			String fileDownloadUri = ServletUriComponentsBuilder
+					.fromCurrentContextPath()
+					.path("/files/")
+					.path(can.getFileDB().getId())
+					.toUriString();
+			res.add( new CandidateResponse( can.getId(),can.getFirstName(),can.getEmail(),can.getPhone(),can.getWebsite(),
+					can.getSecondaryEmail(),can.getLastName(),can.getMobile(),can.getFax(),
+					can.getStreet(),can.getState(),can.getCountry(),can.getCity(),
+					can.getZip(),can.getExpInYrs(),can.getcJobTitle(),
+					can.getExpectedSalary(),can.getSkillSet(),can.getSkypeId(),
+					can.gethQualification(),can.getCurrentEmployer(),can.getCurrentSalary(),
+					can.getAdditionalInfo(),can.getTwitter(),can.getCandidateStatus(),can.getSource()
+					,can.getAssessment().getStatus(),fileDownloadUri,can.getCompanyName()
+			) );
+
+
+
+		}
+
+		return res;
+
 	}
 
 //	
